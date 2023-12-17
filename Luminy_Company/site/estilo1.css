@@ -1,0 +1,560 @@
+  @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Roboto:wght@300;400&display=swap');
+
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+list-style: none;
+border: none;
+text-decoration: none;
+font-family: 'Roboto', cursive;
+}
+
+html{
+width: 100vw;
+height: 100vh;
+font-size: 62.5%;
+overflow-x: hidden;
+
+    }
+
+/* Menu */
+
+
+.content{
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: yellow;
+    position: fixed;
+    padding-left: 30rem;
+        }
+
+.logo{
+    width: 70px;
+    height: auto;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    }
+
+.logo h3{
+    color: black;
+    font-size: 1.6rem;
+    }
+
+.logo img{
+    width: 100%;
+    height: 100%;
+         }
+
+.content .list-menu {
+    width: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+                    } 
+.content .list-menu li a {
+    padding: 3rem 1rem 2rem 1rem;
+    color: blue;
+    font-size: 1.8rem;
+    text-transform:uppercase;
+    font-weight: 500;
+    transition: all 200ms ease-in;
+                         }
+
+.content .list-menu li a:hover{
+    border-color: black;
+    border-bottom:4px solid rgb(27, 77, 124);
+    color: rgb(27, 77, 124);
+                              }
+
+/* First Section */
+
+.first-section{
+    height: 800px;
+    width:100vw;
+    background-image: linear-gradient(rgba(211, 220, 212, 0.8), rgba(235, 242, 235, 0.8)), url(fotofundo2.jpeg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position-y: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+              }
+
+.first-section .conteudo-principal{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+                                  }
+
+.first-section h1{
+    color: rgb(10, 10, 96);
+    font-size: 6rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+                 }
+
+.first-section h2{
+    color: rgb(15, 67, 106);
+    font-size: 3rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+                 }
+
+.btn button{
+    width: 230px;
+    height: 60px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: yellow;
+    border-radius: 10px;
+    color: blue;
+    font-weight: 700;
+    margin-top: 5rem;
+    transition: all 400ms;
+         }
+
+.btn button:hover{
+    border: 1px solid black;
+    background-color: transparent;
+    color: rgb(14, 14, 119);
+                }
+
+.btn{
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/*Sobre nos*/
+
+.sobre-nos{
+    background-color: black;
+    width: 100%;
+    height: 400px;
+    padding-bottom: 5rem;
+    color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sobre-nos img{
+    width: 300px;
+    height: 250px;
+    margin-top: 10rem;
+    margin-left: 10rem;
+    border: 2px solid green;
+    }
+
+.main{
+    display: flex;
+    justify-content: space-between;
+     }
+
+.contentsobre{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+
+.contentsobre h2{
+    font-size: 6rem;
+    margin-bottom: 1rem;
+                }
+
+.contentsobre p{
+    text-align: center;
+    font-size: 1.8rem;
+    width: 600px;
+                }
+
+/*Cadastro*/
+.cadastro{
+    width: 100%;
+    height: 450px;
+    background-color: rgb(178, 231, 244);
+        }
+
+.cadastro form{
+    
+    display: relative;
+    margin-left: 35%;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(235, 241, 241);
+    border-radius: 10px;
+    padding: 60px;
+    width: min-content;
+            }
+
+.cadastro form .title{
+    font-size: 5rem;
+    color: rgb(27, 77, 124);
+    text-transform: uppercase;
+                    }
+
+.cadastro form .input{
+    min-width: 280px;
+    border-radius: 22px;
+    border: 3px solid rgb(27, 77, 124);
+    padding: 5px;
+    margin: 0px 0px 12px -5px;
+                     }
+
+.cadastro i{
+    font-size: 1.2rem;
+    padding-inline: 5px;
+    background: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:black;
+           }
+
+.cadastro .input input{
+    width: 80%;
+    border: none;
+    outline: none;
+                     }
+
+.cadastro button{
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+    background-color: yellow;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 100ms ease-in;
+                }
+
+.cadastro button:hover{
+    border: 1px solid black;
+    background-color: yellow;
+     color: rgb(27, 77, 124);
+}
+
+/*Destino*/
+
+.destino{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color:rgb(163, 240, 177);
+        }
+
+.destino form{
+    display: relative;
+    align-items: center;
+    justify-content: center;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    padding: 60px;
+    width: min-content;
+}
+
+.destino h1{
+    font-size: 6rem;
+    color: rgb(27, 77, 124);
+    text-transform: uppercase;
+        }
+
+.destino .input-box{
+    width: 80%;
+    height: 60%;
+    outline: none;
+    justify-content: space-between;
+}
+
+.destino .input-box{
+    min-width: 280px;
+    border-radius: 22px;
+    border: 3px solid rgb(27, 77, 124);
+    padding: 5px;
+    margin: 0px 0px 12px -5px;
+    font-size: 1.2rem;
+    background-color:whitesmoke;   
+                    }
+
+.destino button{
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(233, 208, 20);
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 100ms ease-in;
+                }
+
+.destino button:hover{
+    border: 1px solid black;
+    background-color: yellow;
+     color: rgb(27, 77, 124);
+}
+
+
+/*Promoções*/
+
+.promoçoes{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(239, 210, 156);
+        }
+
+.promoçoes h2{
+    font-size: 5rem;
+    color: rgb(27, 77, 124);
+    text-transform: uppercase;
+        }
+
+.itens-promoçoes{
+    width: 90%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 350px));
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+                }
+
+.itens-promoçoes .info{
+    background-color: rgb(128, 228, 195);
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+                     }
+
+.itens-promoçoes .info h3{
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    text-decoration: underline;
+                         }
+
+.itens-promoçoes .info h4{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 150px 150px;
+    margin-left: 6rem;
+                         }
+
+.itens-promoçoes .info h4 span {
+    font-size: 1.6rem;
+    color: red;
+    margin-right: 1.5rem;
+    text-decoration: underline;
+                             }
+
+.itens-promoçoes div{
+    background-color: rgb(105, 51, 155);
+    box-shadow: 0px 0px 4px 1px;
+                    }
+
+.itens .promoçoes .img{
+    width: 100%;
+    height: 180px;
+                      }
+
+
+.itens-promoçoes .info .comprar{
+    width: 200px;
+    height: 35px;
+    margin-top: 0.5rem;
+    background-color: yellow;
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    color: blue;
+    transition: all 200ms ease-in;
+                            }
+
+.itens-promoçoes .info .comprar:hover{
+    background-color: green;
+    color: aquamarine;
+                                    }
+/*Contatos*/
+
+.contatos{
+    width: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8rem;
+    color: rgb(30, 114, 192);
+    padding-bottom: 4rem;
+        }
+
+.contatos h3{
+    font-size: 6rem;
+    margin-bottom: 3rem;
+            }
+
+.contatos-seçao{
+    width: 650px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 2rem;
+               }
+
+.contatos-seçao i{
+    margin-right: 1rem;
+                 }
+            
+.contatos-seçao div{
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+
+.contatos-seçao div:hover{
+    color: aquamarine;
+                         }   
+                         
+/*Reclamações*/
+
+.reclamacoes{
+    width: 100%;
+    height: 500px;
+    background-color: black;
+        }
+
+.reclamacoes form{
+    position: relative;
+    top: 20%;
+    left: 10%;
+    align-items: center;
+    justify-content: center;
+    background-color:whitesmoke;
+    border-radius: 10px;
+    padding: 40px;
+    width: min-content;
+            }
+
+.reclamacoes form .title{
+    font-size: 3rem;
+    color: rgb(27, 77, 124);
+    text-transform: uppercase;
+                    }
+
+.reclamacoes form .input{
+    min-width: 280px;
+    border-radius: 22px;
+    border: 3px solid rgb(27, 77, 124);
+    padding: 5px;
+    margin: 0px 0px 12px -5px;
+                     }
+
+.reclamacoes i{
+    font-size: 1.2rem;
+    padding-inline: 5px;
+    background: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color:black;
+           }
+
+.reclamacoes .input input{
+    width: 80%;
+    border: none;
+    outline: none;
+    
+                     }
+
+.reclamacoes .button{
+    margin-top: 10%;
+    width: 100%;
+    text-align: center;
+    background-color: yellow;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    cursor: pointer;
+    font-size: 2rem;
+    transition: all 100ms ease-in;
+                }
+
+.reclamacoes .button:hover{
+    border: 1px solid black;
+    background-color: green;
+     color: blue;
+}
+    
+
+.footer{
+    height: 25px;
+    background-color: black;
+    color: aquamarine;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+      }
+
+@media (max-width: 1200px){
+    .main{
+        display: block;
+        }
+
+.content{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 12%;
+    padding-left: 0px;
+        }
+
+.sobre-nos img{
+    width: 600px;
+    margin-left: -2px;
+              }
+
+                        }
+
+@media (max-width: 992px){
+    html{
+        font-size: 50%;
+        }
+                        }
+
+@media (max-width: 768px){
+    html{
+        font-size: 45%;
+        }
+        .content{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            padding: 0px 40px;
+                }
+                        }
+
+
