@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="icon" href="./assets/img/book-2-fill.svg" type="image/svg" />
+	<link rel="stylesheet" href="./assets/css/style.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet" />
+	<title> Luminy Company | Compras </title>
+</head>
+
+<body>
+	<main>
+		<header class="header">
+			<h1> Compras </h1>
+		</header>
+
+		<ul class="nav justify-content-center">
+			<li class="nav-item">
+				<a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/cliente}">Cliente</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/passagem}">Passagem</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" th:href="@{/compras}">Compras</a>
+			</li>
+		</ul>
+
+		<section class="container">
+
+			<div class="p-4">
+				<button data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary mb-2 botao1"> Nova Compra </button>
+
+				<table class="table table-responsive table-hover">
+					<thead class="table-dark">
+						<tr>
+							<th scope="col">id</th>
+							<th scope="col">Data</th>
+							<th scope="col">Total</th>
+							<th scope="col">Passagem</th>
+							<th scope="col">Destino</th>
+							<th scope="col">Cliente</th>
+							<th scope="col">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="c : ${compras}">
+							<td th:text="${c.id}"></td>
+							<td  th:text="${c.data_compra}"></td>
+							<td  th:text="${c.total_compra}"></td>
+							<td  th:text="${c.passagem.nome}"></td>
+							<td  th:text="${c.passagem.autor}"></td>
+							<td  th:text="${c.cliente.nome}"></td>
+							<td>
+								<div class="d-flex">
+									<a th:href="@{'/compras'}" data-bs-toggle="modal"
+										th:data-bs-target="'#exampleModal' + ${c.id}" class="mx-1" title="Editar">
+										<i class="ri-file-edit-line"></i>
+									</a>
+									<a th:href="@{'/compras/' + ${c.id} + '/excluir'}" class="mx-1" title="Deletar"
+										onclick="return confirm('Deseja excluir o cliente ?')">
+										<i class="ri-delete-bin-2-line"></i>
+									</a>
+									
+									<!-- Modal -->
+									<div class="modal fade" th:id="'exampleModal' + ${c.id}" tabindex="-1"
+										aria-labelledby="exampleModalLabel" aria-hidden="true">
+										<div class="modal-dialog">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h1 class="modal-title fs-5" id="exampleModalLabel"> Atualizar </h1>
+													<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+												</div>
+												<div class="modal-body">
+													<form th:action="@{/compras/cadastrar}" method="post" th:object="${compras}">
+
+														<input type="hidden" id="id" name="id" class="form-control" th:value="${c.id}" />
+														<div class="form-group mb-3">
+															<label for="data" class="form-label"> Data </label> 
+															<input type="text" id="data" name="data_compra"  class="form-control" th:value="${c.data_compra}" />
+														</div>
+														<div class="form-group mb-3">
+															<label for="passagem" class="form-label"> Passagem </label> 
+															<select id="passagem" name="passagem.id"  class="form-control">
+																<option th:value="${c.passagem.id}" th:text="${c.passagem.nome}"></option>
+																<option th:each="l : ${listaPassagem}" th:value="${l.id}" th:text="${l.nome}"></option>
+															</select>
+														</div>
+														<div class="form-group mb-3">
+															<label for="cliente" class="form-label"> Cliente </label> 
+															<select id="cliente" name="cliente.id"class="form-control">
+																<option th:value="${c.cliente.id}" th:text="${c.cliente.nome}"></option>
+																<option th:each="c : ${listaCliente}" th:value="${c.id}" th:text="${c.nome}"></option>
+															</select>
+														</div>
+														
+														<button type="submit" class="btn btn-primary">Enviar</button>
+														<a href="./compras" class="btn btn-danger" style="margin-left: 10px"> Cancelar </a>
+													</form>
+												</div>
+
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="exampleModalLabel"> Cadastrar </h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form th:action="@{/compras/cadastrar}" method="post" th:object="${compras}">
+
+							<div class="form-group mb-3">
+								<label for="data" class="form-label"> Data </label> 
+								<input type="text" id="data" name="data_compra"  class="form-control" value="" />
+							</div>
+							<!-- <div class="form-group mb-3">
+								<label for="total" class="form-label"> Total </label> 
+								<input type="text" id="total" name="total_compra"  class="form-control" value="" />
+							</div> -->
+							<div class="form-group mb-3">
+								<label for="livro" class="form-label"> Livro </label> 
+								<select id="livro" name="livro.id"  class="form-control">
+									<option value="DEFAULT">Escolha um Livro</option> 
+									<option th:each="l : ${listaLivros}" th:value="${l.id}" th:text="${l.nome}"></option>
+								</select>
+							</div>
+							<div class="form-group mb-3">
+								<label for="usuario" class="form-label"> Usuario </label> 
+								<select id="usuario" name="usuario.id"class="form-control">
+									<option value="DEFAULT">Escolha um Usuario</option>
+									<option th:each="u : ${listaUsuarios}" th:value="${u.id}" th:text="${u.nome}"></option>
+								</select>
+							</div>
+							
+							<button type="submit" class="btn btn-primary">Enviar</button>
+							<a href="./compras" class="btn btn-danger" style="margin-left: 10px"> Cancelar </a>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</main>
+	<footer>
+		<img src="./assets/img/recode.svg" alt="recodePro" />
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>
